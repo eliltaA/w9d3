@@ -9,6 +9,7 @@ class FollowsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to request.referrer }
+       format.json {render json: follow}
     end
   end
 
@@ -25,6 +26,7 @@ class FollowsController < ApplicationController
       # `DELETE`.
       # See https://api.rubyonrails.org/classes/ActionController/Redirecting.html#method-i-redirect_to
       format.html { redirect_to request.referrer, status: :see_other }
+       format.json { render json: { message: "Unfollowed user succersfully"}}
     end
   end
 end
